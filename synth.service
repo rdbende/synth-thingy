@@ -1,0 +1,15 @@
+[Unit]
+Description=Rasperry Pi Synth daemon Systemd service
+DefaultDependencies=true
+
+[Service]
+Type=simple
+Group=audio
+User=root
+ExecStart=/usr/local/bin/synth
+RemainAfterExit=True
+Restart=on-failure
+KillMode=process
+
+[Install]
+WantedBy=local-fs.target
