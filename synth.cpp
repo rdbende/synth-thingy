@@ -77,8 +77,7 @@ int tick(
 ) {
     double *buffer = (double *) outBuffer;
 
-    float v;
-    float s, s3, c;
+    float s, v;
     float amplitude;
     float lifetime;
 
@@ -125,8 +124,7 @@ int tick(
                 amplitude = sustain_amp;
             }
             s = sin(2 * M_PI * freq * lifetime);
-            c = cos(2 * M_PI * freq * lifetime);
-            v = (0.25 * s + c) * amplitude * 0.5;
+            v = s * amplitude;
             buffer[i*2] = v * (1 - pan);
             buffer[i*2+1] = v * pan;
             timec++;
